@@ -1,0 +1,159 @@
+{
+	"info": {
+		"_postman_id": "4eedf078-05fe-4dd7-af08-e17d23acdb1c",
+		"name": "Contentful REST API calls",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get entries of a space",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "5f82882fdae8707fa36c06fe490d4c35074a6d72c3b49f29f70b31e7e214fa2e",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{cdaUri}}/spaces/{{spaceId}}/environments/{{environmentId}}/entries?access_token={{cdaToken}}",
+					"host": [
+						"{{cdaUri}}"
+					],
+					"path": [
+						"spaces",
+						"{{spaceId}}",
+						"environments",
+						"{{environmentId}}",
+						"entries"
+					],
+					"query": [
+						{
+							"key": "access_token",
+							"value": "{{cdaToken}}"
+						},
+						{
+							"key": "Authorization",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Blog published blog posts",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "5f82882fdae8707fa36c06fe490d4c35074a6d72c3b49f29f70b31e7e214fa2e",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{cdaUri}}/spaces/{{spaceId}}/environments/{{environmentId}}/entries?access_token={{cdaToken}}&content_type=blogPost",
+					"host": [
+						"{{cdaUri}}"
+					],
+					"path": [
+						"spaces",
+						"{{spaceId}}",
+						"environments",
+						"{{environmentId}}",
+						"entries"
+					],
+					"query": [
+						{
+							"key": "access_token",
+							"value": "{{cdaToken}}"
+						},
+						{
+							"key": "Authorization",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "content_type",
+							"value": "blogPost"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get the \"person\" content type",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "5f82882fdae8707fa36c06fe490d4c35074a6d72c3b49f29f70b31e7e214fa2e",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{cdaUri}}/spaces/{{spaceId}}/environments/{{environmentId}}/content_types?access_token={{cdaToken}}",
+					"host": [
+						"{{cdaUri}}"
+					],
+					"path": [
+						"spaces",
+						"{{spaceId}}",
+						"environments",
+						"{{environmentId}}",
+						"content_types"
+					],
+					"query": [
+						{
+							"key": "access_token",
+							"value": "{{cdaToken}}"
+						},
+						{
+							"key": "Authorization",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
