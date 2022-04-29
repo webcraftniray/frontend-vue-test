@@ -10,7 +10,7 @@
 - Install the package
 - Create a new Nuxt page
 - Pull in your preferred Frontend CCS component library (Read the docs on how to do this using the Nuxt config file)
-- Use the ContentFul credentials supplied in this document to connect to the ContentFul API
+- Use the ContentFul credentials supplied via email to connect to the ContentFul API
 - Call in the blogs via the API and present them on the page you created - i.e. a blog list page.
 - Create a link to the single blog layout with links back to the list layout page.
 
@@ -20,8 +20,7 @@
 
 # ContentFul API
 
-
-
+Supplied in email
 
 
 ---
