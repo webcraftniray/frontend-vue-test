@@ -1,0 +1,7 @@
+/*
+    ! "@ tailwind" May show as unknown rule without PostCSS Language Support extension in VSCode
+*/
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

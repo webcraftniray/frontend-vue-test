@@ -1,0 +1,68 @@
+<script setup>
+import { getBlogs } from '@/plugins/contentful.js'
+const { data: blogs } = useAsyncData('blogs', () => getBlogs())
+</script>
+
+<template>
+    <VeriteerContainer>
+        <Head>
+            <Title>Site Name - Blogs</Title>
+            <Meta name="description" content="Blogs Listing Page" />
+        </Head>
+
+        <VeriteerSection>
+            <VeriteerTitle class="text-center">
+                Find something to read...
+            </VeriteerTitle>
+            <VeriteerGrid>
+                <div v-for="(
+                    {
+                        fields: {
+                            title,
+                            introText,
+                            mainImage: {
+                                fields: {
+                                    file: {
+                                        url
+                                    }
+                                }
+                            }
+                        },
+                        sys: {
+                            id
+                        }
+                    },
+                    index
+                    ) in blogs"
+                    :key="index"
+                >
+                    <NuxtLink :to="`/blog/${id}`">
+                        <VeriteerCard>
+                            <VeriteerCardImage>
+                                <img :src="`https:${url}`" />
+                            </VeriteerCardImage>
+                            <VeriteerCardBody>
+                                <VeriteerCardTitle>
+                                    {{ title }}
+                                </VeriteerCardTitle>
+                                <VeriteerCardContent>
+                                    {{ introText }}
+                                </VeriteerCardContent>
+                            </VeriteerCardBody>
+                        </VeriteerCard>
+                    </NuxtLink>
+                </div>
+            </VeriteerGrid>
+        </VeriteerSection>
+    </VeriteerContainer>
+</template>
+
+<script>
+export default {
+    data() {
+        return {
+            blogs: []
+        }
+    }
+}
+</script>
