@@ -5,51 +5,53 @@ const { data: blog } = useAsyncData('blog', () => getBlog({ id }))
 </script>
 
 <template>
-    <VeriteerContainer>
-        <Head>
-            <Title>{{ blog?.title }}</Title>
-            <Meta name="description" :content="blog?.introText" />
-        </Head>
+    <div>
+        <VeriteerContainer>
+            <Head>
+                <Title>{{ blog?.title }}</Title>
+                <Meta name="description" :content="blog?.introText" />
+            </Head>
 
-        <VeriteerSection class="text-center">
-            <VeriteerBreadcrumb
-                :items="[
-                    {
-                        title: 'Home',
-                        slug: '/'
-                    },
-                    {
-                        title: 'Blogs',
-                        slug: '/blog/'
-                    }
-                ]"
-            />
-        </VeriteerSection>
+            <VeriteerSection class="text-center">
+                <VeriteerBreadcrumb
+                    :items="[
+                        {
+                            title: 'Home',
+                            slug: '/'
+                        },
+                        {
+                            title: 'Blogs',
+                            slug: '/blog/'
+                        }
+                    ]"
+                />
+            </VeriteerSection>
 
-        <VeriteerSection>
-            <VeriteerBanner :image="blog.mainImage?.fields.file?.url" />
-            <VeriteerTitle>
-                {{ blog?.title }}
-            </VeriteerTitle>
-            <VeriteerDivider />
-            <VeriteerContent :content="blog?.mainText" />
-        </VeriteerSection>
+            <VeriteerSection>
+                <VeriteerBanner :image="blog?.mainImage?.fields.file?.url" />
+                <VeriteerTitle>
+                    {{ blog?.title }}
+                </VeriteerTitle>
+                <VeriteerDivider />
+                <VeriteerContent :content="blog?.mainText" />
+            </VeriteerSection>
 
-        <VeriteerSection class="text-center">
-            <VeriteerBreadcrumb
-                :items="[
-                    {
-                        title: 'Home',
-                        slug: '/'
-                    },
-                    {
-                        title: 'Blogs',
-                        slug: '/blog/'
-                    }
-                ]"
-            />
-        </VeriteerSection>
-    </VeriteerContainer>
+            <VeriteerSection class="text-center">
+                <VeriteerBreadcrumb
+                    :items="[
+                        {
+                            title: 'Home',
+                            slug: '/'
+                        },
+                        {
+                            title: 'Blogs',
+                            slug: '/blog/'
+                        }
+                    ]"
+                />
+            </VeriteerSection>
+        </VeriteerContainer>
+    </div>
 </template>
 
 <script>
@@ -68,6 +70,6 @@ export default {
                 }
             }
         }
-    }
+    },
 }
 </script>

@@ -4,57 +4,60 @@ const { data: blogs } = useAsyncData('blogs', () => getBlogs())
 </script>
 
 <template>
-    <VeriteerContainer>
-        <Head>
-            <Title>Site Name - Blogs</Title>
-            <Meta name="description" content="Blogs Listing Page" />
-        </Head>
+    <div>
+        <VeriteerContainer>
+            <Head>
+                <Title>Site Name - Blogs</Title>
+                <Meta name="description" content="Blogs Listing Page" />
+            </Head>
 
-        <VeriteerSection>
-            <VeriteerTitle class="text-center">
-                Find something to read...
-            </VeriteerTitle>
-            <VeriteerGrid>
-                <div v-for="(
-                    {
-                        fields: {
-                            title,
-                            introText,
-                            mainImage: {
-                                fields: {
-                                    file: {
-                                        url
+            <VeriteerSection>
+                <VeriteerTitle class="text-center">
+                    Find something to read...
+                </VeriteerTitle>
+                <VeriteerDivider class="mb-6" />
+                <VeriteerGrid>
+                    <div v-for="(
+                        {
+                            fields: {
+                                title,
+                                introText,
+                                mainImage: {
+                                    fields: {
+                                        file: {
+                                            url
+                                        }
                                     }
                                 }
+                            },
+                            sys: {
+                                id
                             }
                         },
-                        sys: {
-                            id
-                        }
-                    },
-                    index
-                    ) in blogs"
-                    :key="index"
-                >
-                    <NuxtLink :to="`/blog/${id}`">
-                        <VeriteerCard>
-                            <VeriteerCardImage>
-                                <img :src="`https:${url}`" />
-                            </VeriteerCardImage>
-                            <VeriteerCardBody>
-                                <VeriteerCardTitle>
-                                    {{ title }}
-                                </VeriteerCardTitle>
-                                <VeriteerCardContent>
-                                    {{ introText }}
-                                </VeriteerCardContent>
-                            </VeriteerCardBody>
-                        </VeriteerCard>
-                    </NuxtLink>
-                </div>
-            </VeriteerGrid>
-        </VeriteerSection>
-    </VeriteerContainer>
+                        index
+                        ) in blogs"
+                        :key="index"
+                    >
+                        <NuxtLink :to="`/blog/${id}`">
+                            <VeriteerCard>
+                                <VeriteerCardImage>
+                                    <img :src="`https:${url}`" />
+                                </VeriteerCardImage>
+                                <VeriteerCardBody>
+                                    <VeriteerCardTitle>
+                                        {{ title }}
+                                    </VeriteerCardTitle>
+                                    <VeriteerCardContent>
+                                        {{ introText }}
+                                    </VeriteerCardContent>
+                                </VeriteerCardBody>
+                            </VeriteerCard>
+                        </NuxtLink>
+                    </div>
+                </VeriteerGrid>
+            </VeriteerSection>
+        </VeriteerContainer>
+    </div>
 </template>
 
 <script>

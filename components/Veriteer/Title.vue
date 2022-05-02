@@ -1,6 +1,6 @@
 <template>
     <component :is="is" :class="is" class="text-3xl mb-5 hover:text-gray-500">
-        <slot></slot>
+        <slot />
     </component>
 </template>
 

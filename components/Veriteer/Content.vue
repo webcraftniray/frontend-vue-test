@@ -8,8 +8,8 @@ export default {
         content: String
     },
     async mounted() {
+        if(!this.content) return
         const Viewer = (await import('@toast-ui/editor/dist/toastui-editor-viewer')).default;
-        console.log(Viewer)
         const viewer = new Viewer({
             el: document.querySelector('#viewer'),
             initialValue: this.content

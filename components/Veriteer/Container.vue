@@ -5,12 +5,6 @@
         Tailwind’s container does not center itself automatically and does not have any built-in horizontal padding.
     -->
     <div class="container mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-        <slot></slot>
+        <slot />
     </div>
 </template>
-
-<script>
-export default {
-    name: 'Container'
-}
-</script>

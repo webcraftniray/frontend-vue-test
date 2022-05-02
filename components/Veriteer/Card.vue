@@ -12,6 +12,6 @@
         hover:scale-105
         "
         >
-        <slot></slot>
+        <slot />
     </div>
 </template>
