@@ -1,6 +1,21 @@
 <script setup>
 import { getBlogs } from '@/plugins/contentful.js'
 const { data: blogs } = useAsyncData('blogs', () => getBlogs())
+
+
+/*
+import { createClient } from 'contentful'
+const { cdaUri, spaceId, environmentId, cdaToken } = useRuntimeConfig()
+const client = createClient({
+        host: cdaUri,
+        environment: environmentId,
+        space: spaceId,
+        accessToken: cdaToken
+    });
+const url = `${cdaUri}/spaces/${spaceId}/environments/${environmentId}/entries?access_token=${cdaToken}&content_type=blogPost`
+const data = useAsyncData('blogs', () => $fetch(url))
+console.log(data)
+*/
 </script>
 
 <template>
@@ -66,6 +81,6 @@ export default {
         return {
             blogs: []
         }
-    }
+    },
 }
 </script>
