@@ -1,32 +1,18 @@
 <script setup>
+/**
+ * TODO: Implement GraphQL with Contentful requests
+ * * In SSR, Nuxt can only load server-side once so routing only works with /server/api. https://v3.nuxtjs.org/guide/features/server-routes/
+ */
+
+/*
+// * API Version (not working because of endpoint)
+const test = await $fetch('/api/blogs')
+console.log(test)
+*/
+
+// * Working Version (without route changes)
 import { getBlogs } from '@/plugins/contentful.js'
 const { data: blogs } = useAsyncData('blogs', () => getBlogs())
-
-/**
- * ! Either $fetch is required for reactive asynchronous requests or script setup is not fired on route change.
- */
-
-/**
- * ! TEST CASE
- * 
- * ? Contentful URL returns Blob JS type, not sure if this is because of nuxt $fetch or Contentful headers.
- * ? Blob seems empty but also cannot be stringified by JSON.stringify().
- * ? useAsyncData must stringify data as it throws warning and nothing happens. (Cannot stringify arbitrary non-POJOs Blob)
- * ? FileReader is not available in NodeJS, only client-side JavaScript so can't convert Blob to JSON.
- */
-/*
-import { createClient } from 'contentful'
-const { cdaUri, spaceId, environmentId, cdaToken } = useRuntimeConfig()
-const client = createClient({
-        host: cdaUri,
-        environment: environmentId,
-        space: spaceId,
-        accessToken: cdaToken
-    });
-const url = `${cdaUri}/spaces/${spaceId}/environments/${environmentId}/entries?access_token=${cdaToken}&content_type=blogPost`
-const blogData = await $fetch(url)
-const { data: blogs } = useAsyncData('blogs', () => blogData)
-*/
 </script>
 
 <template>

@@ -1,7 +1,17 @@
 <script setup>
+
+/*
+// * API Version (not working because of endpoint)
+const { params: { id } } = useRoute()
+const test = await $fetch('/api/blog', { method: 'POST', body: { id } })
+console.log(test)
+*/
+
+// * Working Version (without route changes)
 import { getBlog } from '@/plugins/contentful.js'
 const { params: { id } } = useRoute()
-const { data: blog } = useAsyncData('blog', () => getBlog({ id }))
+const { data: blog, refresh } = useAsyncData('blog', () => getBlog({ id }))
+refresh()
 </script>
 
 <template>

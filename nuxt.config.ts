@@ -33,9 +33,9 @@ export default defineNuxtConfig({
    *  */
   runtimeConfig: {
     // The private keys which are only available within server-side
-    cdaToken: process.env.cdaToken,
     // Keys within public, will be also exposed to the client-side
     public: {
+      cdaToken: process.env.cdaToken,
       cdaUri: process.env.cdaUri,
       previewUri: process.env.previewUri,
       spaceId: process.env.spaceId,
