@@ -7,7 +7,7 @@ const test = await $fetch('/api/blog', { method: 'POST', body: { id } })
 console.log(test)
 */
 
-// * Working Version (without route changes)
+// * Working Version (cdaToken exposed to client-side)
 import { getBlog } from '@/plugins/contentful.js'
 const { params: { id } } = useRoute()
 const { data: blog, refresh } = useAsyncData('blog', () => getBlog({ id }))

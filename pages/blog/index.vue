@@ -10,7 +10,7 @@ const test = await $fetch('/api/blogs')
 console.log(test)
 */
 
-// * Working Version (without route changes)
+// * Working Version (cdaToken exposed to client-side)
 import { getBlogs } from '@/plugins/contentful.js'
 const { data: blogs } = useAsyncData('blogs', () => getBlogs())
 </script>
